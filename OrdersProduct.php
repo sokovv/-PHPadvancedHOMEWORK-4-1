@@ -9,7 +9,7 @@ class OrdersProduct extends Common
 
     public function insert(array $tableColumns, array $values): array
     {
-        $sql = 'INSERT INTO orders_product(id, orders_id, product_id) VALUES(:id,:orders_id, :product_id)';
+        $sql = 'INSERT INTO orders_product(id, orders_id, product_id, price) VALUES(:id,:orders_id, :product_id, :price)';
         $stmt = $this->pdo->prepare($sql);
         for ($i = 0; $i < count($tableColumns); $i++) {
             $stmt->bindValue(':' . $tableColumns[$i], $values[$i]);
