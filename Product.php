@@ -2,13 +2,13 @@
 
 require_once('Common.php');
 
-class Orders extends Common
+class Product extends Common
 {
-    public string $table = 'orders';
+    public string $table = 'product';
 
     public function insert(array $tableColumns, array $values): array
     {
-        $sql = 'INSERT INTO orders(id, created_at, shop_id, client_id) VALUES(:id, :created_at, :shop_id,:client_id)';
+        $sql = 'INSERT INTO product(id, product_name, price, count) VALUES(:id, :product_name, :price, :count)';
         $stmt = $this->pdo->prepare($sql);
         for ($i = 0; $i < count($tableColumns); $i++) {
             $stmt->bindValue(':' . $tableColumns[$i], $values[$i]);
@@ -19,7 +19,7 @@ class Orders extends Common
 
     public function update(int $id, array $values): array
     {
-        return $this->query("UPDATE $this->table SET (created_at, shop_id, client_id) = ('$values[created_at]','$values[shop_id]','$values[client_id]')  WHERE id = $id");
+        return $this->query("UPDATE $this->table SET (product_name, price, count) = ('$values[product_name]','$values[price]','$values[count]')  WHERE id = $id");
     }
 }
 

@@ -8,31 +8,94 @@ require_once('autoload.php');
 $shop = new Shop();
 $client = new Client();
 $orders = new Orders();
+$product = new Product();
+$ordersProduct = new OrdersProduct();
+
+print_r($shop->find(1));
+print_r($client->find(6));
+print_r($orders->find(1));
+print_r($product->find(1));
+print_r($ordersProduct->find(1));
 
 // Получаем и выводим данные
 
 //Добавление позиции
 //echo "<pre>";
-//print_r($shop->insert('name', 'Gipermar'));
+
+
+//$insertTable = [
+//    'name',
+//    'phone',
+//];
+//$insertValue= [
+//    'Alexey',
+//    '9234056789',
+//];
+////
+//$client->insert($insertTable, $insertValue);
 
 //Удаление
 //echo "<pre>";
-//$shop->delete(3);
+//$shop->delete(7);
 
 //Поиск
 //echo "<pre>";
-//print_r($shop->find(2));
+//print_r($shop->find(3));
 
 //Обновление
+
+//$clientsUpdate = [
+//    'name' => 'Vasiliy',
+//    'phone' => '1111111111',
+//];
+
 //echo "<pre>";
-//$shop->update(1, 'Lg');
+//$client->update(2, $clientsUpdate);
 
-echo "<pre>";
-$orders->update(1, '2023-12-08', 'Andrey', 'Telephone');
+//$ordersUpdate = [
+//    'created_at' => '2023-01-01',
+//    'shop_id' => '2',
+//    'client_id' => '2',
+//];
 
-////Показать все элементы
-echo "<pre>";
-print_r($orders->getAll());
+
+//$ordersUpdate = [
+//    'orders_id' => '1',
+//    'product_id' => '1',
+//];
+//
+//$ordersProduct->update(5, $ordersUpdate);
+
+//echo "<pre>";
+//$orders->update(2, $ordersUpdate);
+
+//$shopUpdate = [
+//    'shop_name' => 'Samsung',
+//];
+
+//echo "<pre>";
+//$shop->update(3, $shopUpdate);
+
+//$clientUpdate = [
+//    'name' => 'Valeriy',
+//    'phone' => '2222222222222',
+//];
+//
+//
+//$client->update(2, $clientUpdate);
+
+//$productUpdate = [
+//    'product_name' => 'Mouse',
+//    'price' => '300',
+//    'count' => '1'
+//];
+//
+//
+//$product->update(1, $productUpdate);
+
+//Показать все элементы
+
+//print_r($shop->getAll());
 
 //echo "<pre>";
 //print_r($shop->getRow(0));
