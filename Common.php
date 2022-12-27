@@ -9,7 +9,7 @@ class Common implements DatabaseWrapper
 
     public function __construct()
     {
-        $this->pdo = new PDO("sqlite:C:\Users\Валера\Desktop\Обучение(1)\Обучение(1)\Обучение\Курс PHP продвинутый\Homework4(DB)\-PHPadvancedHOMEWORK-4-1\identifier.sqlite");
+        $this->pdo = new PDO('sqlite:identifier.sqlite');
     }
 
     public function query($sql, $params = [])
@@ -52,7 +52,7 @@ class Common implements DatabaseWrapper
         // TODO: Implement update() method.
     }
 
-    public function find(int $id,): array
+    public function find(int $id): array
     {
         return $this->query("SELECT  * FROM $this->table WHERE id = $id");
     }
