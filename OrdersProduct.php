@@ -9,7 +9,7 @@ class OrdersProduct extends Common
 
     public function insert(array $tableColumns, array $values): array
     {
-        $sql = 'INSERT INTO orders_product(id, orders_id, product_id, price) VALUES(:id,:orders_id, :product_id, :price)';
+        $sql = 'INSERT INTO orders_product(id, orders_id, product_id, count) VALUES(:id,:orders_id, :product_id, :count)';
         $stmt = $this->pdo->prepare($sql);
         for ($i = 0; $i < count($tableColumns); $i++) {
             $stmt->bindValue(':' . $tableColumns[$i], $values[$i]);
@@ -20,7 +20,7 @@ class OrdersProduct extends Common
 
     public function update(int $id, array $values): array
     {
-        return $this->query("UPDATE $this->table SET (orders_id, product_id) = ('$values[orders_id]', '$values[product_id]')  WHERE id = $id");
+        return $this->query("UPDATE $this->table SET (orders_id, product_id, count) = ('$values[orders_id]', '$values[product_id]', '$values[count]')  WHERE id = $id");
     }
 }
 
