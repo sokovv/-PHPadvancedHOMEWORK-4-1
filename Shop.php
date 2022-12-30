@@ -8,7 +8,7 @@ class Shop extends Common
 
     public function insert(array $tableColumns, array $values): array
     {
-        $sql = 'INSERT INTO shop(id, shop_name) VALUES(:id,:shop_name)';
+        $sql = 'INSERT INTO shop(id, shop_name,shop_address) VALUES(:id,:shop_name,:shop_address)';
         $stmt = $this->pdo->prepare($sql);
         for ($i = 0; $i < count($tableColumns); $i++ ) {
             $stmt->bindValue(':' . $tableColumns[$i], $values[$i]);
@@ -19,7 +19,7 @@ class Shop extends Common
 
     public function update(int $id, array $values): array
     {
-        return $this->query("UPDATE $this->table SET (shop_name) = ('$values[shop_name]')  WHERE id = $id");
+        return $this->query("UPDATE $this->table SET (shop_name, shop_address) = ('$values[shop_name]','$values[shop_address]')  WHERE id = $id");
     }
 
 }
